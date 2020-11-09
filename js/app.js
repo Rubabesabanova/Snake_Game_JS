@@ -33,9 +33,15 @@ function Up(){
     clearInterval(move);
     move = setInterval(function(){
         if (getPos(snake).y>box-1){
+            if (document.querySelectorAll(".tail")!=null){
+                for (i=0; i<document.querySelectorAll(".tail").length; i++){
+                    document.querySelectorAll(".tail")[i].style.transform = "translate("+stepX*box+"px, "+(stepY-i)*box+"px)";
+                }
+                
+            }
+            
             stepY-=1;
             snake.style.transform = "translate("+stepX*box+"px, "+stepY*box+"px)";
-            tail.style.transform = "translate("+(stepX)*box+"px, "+(stepY)*box+"px)";
             CheckFood();
         }
         else{
@@ -50,6 +56,12 @@ function Down(){
     move = setInterval(function(){
         
     if (getPos(snake).y<document.querySelector(".inner-container").clientHeight-box){
+        if (document.querySelectorAll(".tail")!=null){
+            for (i=0; i<document.querySelectorAll(".tail").length; i++){
+                document.querySelectorAll(".tail")[i].style.transform = "translate("+stepX*box+"px, "+(stepY-i)*box+"px)";
+            }
+            
+        }
         stepY+=1;
         snake.style.transform = "translate("+stepX*box+"px, "+stepY*box+"px)";
         CheckFood();
@@ -66,6 +78,12 @@ function Left(){
     move = setInterval(function(){
        
         if (getPos(snake).x>box-1){
+            if (document.querySelectorAll(".tail")!=null){
+                for (i=0; i<document.querySelectorAll(".tail").length; i++){
+                    document.querySelectorAll(".tail")[i].style.transform = "translate("+(stepX-i)*box+"px, "+stepY*box+"px)";
+                }
+                
+            }
             stepX-=1;
             snake.style.transform = "translate("+stepX*box+"px, "+stepY*box+"px)";
             CheckFood();}
@@ -81,6 +99,12 @@ function Right(){
     move = setInterval(function(){
         
         if (getPos(snake).x<document.querySelector(".inner-container").clientWidth-box){
+            if (document.querySelectorAll(".tail")!=null){
+                for (i=0; i<document.querySelectorAll(".tail").length; i++){
+                    document.querySelectorAll(".tail")[i].style.transform = "translate("+(stepX-i)*box+"px, "+stepY*box+"px)";
+                }
+                
+            }
             stepX+=1;
             snake.style.transform = "translate("+stepX*box+"px, "+stepY*box+"px)";
             CheckFood();
