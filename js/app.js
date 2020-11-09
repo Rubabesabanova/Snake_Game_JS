@@ -35,7 +35,7 @@ function Up(){
         if (getPos(snake).y>box-1){
             if (document.querySelectorAll(".tail")!=null){
                 for (i=0; i<document.querySelectorAll(".tail").length; i++){
-                    document.querySelectorAll(".tail")[i].style.transform = "translate("+stepX*box+"px, "+(stepY-i)*box+"px)";
+                    document.querySelectorAll(".tail")[i].style.transform = "translate("+stepX*box+"px, "+(stepY+i)*box+"px)";
                 }
                 
             }
@@ -80,7 +80,7 @@ function Left(){
         if (getPos(snake).x>box-1){
             if (document.querySelectorAll(".tail")!=null){
                 for (i=0; i<document.querySelectorAll(".tail").length; i++){
-                    document.querySelectorAll(".tail")[i].style.transform = "translate("+(stepX-i)*box+"px, "+stepY*box+"px)";
+                    document.querySelectorAll(".tail")[i].style.transform = "translate("+(stepX+i)*box+"px, "+stepY*box+"px)";
                 }
                 
             }
