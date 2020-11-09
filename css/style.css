@@ -22,3 +22,7 @@ body{
     position: absolute;
     background-color: rgb(238, 17, 153);
 }
+.tail{
+    position: absolute;
+    background-color: rgb(255, 0, 0);
+}

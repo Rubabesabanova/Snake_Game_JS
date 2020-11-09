@@ -35,6 +35,7 @@ function Up(){
         if (getPos(snake).y>box-1){
             stepY-=1;
             snake.style.transform = "translate("+stepX*box+"px, "+stepY*box+"px)";
+            tail.style.transform = "translate("+(stepX)*box+"px, "+(stepY)*box+"px)";
             CheckFood();
         }
         else{
@@ -120,6 +121,12 @@ function checkKey(e) {
 function CheckFood(){
     if (transFoodX==stepX*box && transFoodY==stepY*box){
         score+=1;
+        var tail = document.createElement("div");
+        tail.setAttribute("class", "tail");
+        document.querySelector('.snake').appendChild(tail);
+        tail.style.transform = "translate("+(stepX)*box+"px, "+(stepY)*box+"px)";
+        tail.style.height= `${box}px`;
+        tail.style.width= `${box}px`;
         randomFood();
     }
 };
